@@ -3,17 +3,15 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub Stars](https://img.shields.io/github/stars/anaraquel00/NeonStore?style=social)](https://github.com/anaraquel00/NeonStore/stargazers)
 
-Projeto de e-commerce desenvolvido com [insira as tecnologias principais, ex: React, Node.js, etc].
+Projeto de e-commerce desenvolvido com Java/Spring Framework.
 
 <div align="center">
   <img src="https://via.placeholder.com/800x400?text=NeonStore+Screenshot" alt="Preview do Projeto">
 </div>
 
 ## 🚀 Recursos Principais
-- ✅ Carrinho de compras interativo
-- ✅ Integração com pagamentos via [insira o método]
-- ✅ Catálogo de produtos dinâmico
-- ✅ [Adicione outros recursos]
+- ✅ Sistema CRUD por endpoints http
+- ✅ Design Strategy Pattern 
 
 ## 📦 Pré-requisitos
 ```bash
@@ -31,14 +29,27 @@ npm start  # ou o comando específico do seu projeto
 
 ## 🌈 Estrutura do Projeto
 ```
-NeonStore/
-├── public/          # Arquivos estáticos
-├── src/             # Código-fonte
-│   ├── components/  # Componentes React
-│   ├── pages/       # Páginas principais
-│   └── styles/      # Arquivos CSS
-├── package.json
-└── README.md
+src/
+├── main/
+│   ├── java/
+│   │   └── com/
+│   │       └── rqs/
+│   │           └── neon_store/
+|   |               ├── controller
+|   |               |    └── ProdutoController.java  # Endpoints HTTP                
+│   │               ├── model/
+│   │               │   └── Produto.java             # Entidade JPA
+│   │               ├── repository/
+│   │               │   └── ProdutoRepository.java   # Interface Spring Data JPA
+│   │               ├── strategy/
+│   │               │   ├── CalculoFrete.java        # Interface Strategy
+│   │               │   ├── FreteComum.java          # Implementação concreta 1
+│   │               │   └── FreteExpresso.java       # Implementação concreta 2
+│   │               ├── service/
+│   │               │   └── ProdutoService.java      # Serviço que usa Strategy + Repository
+│   │               └── NeonStoreApplication.java    # Classe main do Spring Boot
+└── resources/
+    └── application.properties                   # Configurações do BD
 ```
 
 ## 🤝 Como Contribuir
